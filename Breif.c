@@ -46,7 +46,21 @@
    printf("Erreur: ");// limite de taches atteinte
    }
 }
- 
+ // Affichage des taches 
+   void AfficherlisteTaches(){
+   	int nbreTaches;
+   	printf("\n______Liste des taches______\n");
+   	int i;
+   	for(i=0;i<nbreTaches;i++){
+   		printf("Titre: %s\n ",T[i].titre);
+   		printf("Description: %s \n",T[i].description);
+   			if(T[i].priorite==1){
+   				printf(" Priorite: Tache importante\n");
+			   }else printf(" Tache normale \n");
+   			
+   		printf("date d'echeance: %d/ %d/ %d",T[i].date.jour,T[i].date.mois,T[i].date.ann);
+	   }
+   }
  
  
  
@@ -72,7 +86,7 @@ int main(){
 						scanf("%d",&choix);
 				switch(choix){
 					case 1:Ajoutertache(); break;
-				//	case 2:AfficherlisteTaches(); break;
+					case 2:AfficherlisteTaches(); break;
 				//	case 3:ModifierTache(); 	 break;
                     // case 4:SupprimerTache(); 	 break;
 				//	case 5: FiltrerTache();break;
