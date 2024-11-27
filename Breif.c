@@ -61,7 +61,43 @@
    		printf("date d'echeance: %d/ %d/ %d",T[i].date.jour,T[i].date.mois,T[i].date.ann);
 	   }
    }
- 
+    // Modifier les taches
+   void ModifierTache(){
+   	int nbreTaches;
+   	int choix;
+   if(nbreTaches>0){
+   	int numeroTache;
+   	printf("Donner le numero de tache a modifier\n");
+   	scanf("%d",&numeroTache);
+   	if(numeroTache>0 && numeroTache<=nbreTaches){
+   	
+   	printf("Entrer un nouveau titre\n ");
+   	scanf("%s",T[numeroTache].titre);
+   	 
+   	 printf("Entrer une nouvelle description \n");
+   	 scanf("%s",T[numeroTache].description);
+   	 
+   	 int choix;
+		do{
+			printf("entrer priorite (1- high  2-low) : ");
+			scanf("%d",&choix);
+			switch(choix){
+				case 1 : T[numeroTache].priorite = 1  ;break;
+				case 2 :T[numeroTache].priorite = 2;break;
+				default:printf("choix invalide !!");
+			}
+		}while(choix!=1 && choix!=2);
+		printf("Entrer le nouveau jour (actuel: %d) : ",T[numeroTache].date.jour);
+		scanf("%d",&T[numeroTache].date.jour);
+		printf("Entrer le nouveau mois (actuel: %d) : ",T[numeroTache].date.mois);
+		scanf("%d",&T[numeroTache].date.mois);
+		printf("Entrer le nouvelle (actuel: %d) : ",T[numeroTache].date.ann);
+		scanf("%d",&T[numeroTache].date.ann);
+   	printf("Tache modifier avec succes ^-^");
+   }else printf("Aucune Tache a modifier ");
+}else printf("Aucune Tache a modifier");
+}
+
  
  
  
@@ -87,7 +123,7 @@ int main(){
 				switch(choix){
 					case 1:Ajoutertache(); break;
 					case 2:AfficherlisteTaches(); break;
-				//	case 3:ModifierTache(); 	 break;
+					case 3:ModifierTache(); 	 break;
                     // case 4:SupprimerTache(); 	 break;
 				//	case 5: FiltrerTache();break;
                    // case 6: TriCroissante() ; break;
