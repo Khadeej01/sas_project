@@ -97,7 +97,26 @@
    }else printf("Aucune Tache a modifier ");
 }else printf("Aucune Tache a modifier");
 }
-
+  //Suppresion des taches
+void SupprimerTache(){
+	int nbreTaches;
+    // Verifiez que le nombre de taches est > 0
+	  	int   numeroTache;
+	if(nbreTaches>0){
+		int i;
+		printf("\nEntrer le numero de la tache a supprimer  \n");
+		scanf("%d",&numeroTache);
+		 // Verifiez que le numero de tache est valide
+		if(numeroTache>0 && numeroTache<=nbreTaches){
+			// Deplacer les taches suivantes pour combler l'espace
+			for(i=numeroTache-1; i<nbreTaches-1; i++){
+				T[i]=T[i+1];
+			}
+			nbreTaches--;  // Reduire le compteur de taches
+			printf(" Tache  supprime avec succes^-^");
+		}else printf("Numero de Tache invalide.");
+	}else printf("Aucune tache a supprimer ");
+}
  
  
  
@@ -124,7 +143,7 @@ int main(){
 					case 1:Ajoutertache(); break;
 					case 2:AfficherlisteTaches(); break;
 					case 3:ModifierTache(); 	 break;
-                    // case 4:SupprimerTache(); 	 break;
+                    case 4:SupprimerTache(); 	 break;
 				//	case 5: FiltrerTache();break;
                    // case 6: TriCroissante() ; break;
 					case 7: 
